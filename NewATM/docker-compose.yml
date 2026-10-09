@@ -1,0 +1,11 @@
+services:
+    app:
+        image: new-atm
+        ports:
+            - "9090:8080"
+
+    mysql:
+        image: mysql:8.0
+        environment:
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_DATABASE: root
