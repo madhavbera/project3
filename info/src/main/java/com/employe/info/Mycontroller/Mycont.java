@@ -25,7 +25,7 @@ public class Mycont {
 	@GetMapping("/hellow")
 	public String gethellow()
 	{
-		return "Hey there what can i help you !";
+		return "Hey use what's the plain today!";
 	}
 	@GetMapping("/simple")
 	public String getsimple()
