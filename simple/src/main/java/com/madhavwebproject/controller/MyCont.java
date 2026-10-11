@@ -81,7 +81,7 @@ public class MyCont {
 	@GetMapping("/hellow")
 	public String getmessage()
 	{
-		return "Hellow user";
+		return "Hellow user what you think";
 	}
 	@GetMapping("/welcome")
 	@PreAuthorize("hasRole('ADMIN')")
