@@ -43,7 +43,7 @@ public class Mycont {
 	@GetMapping("/open")
 	public ResponseEntity<String> getresponse()
 	{
-		return new ResponseEntity<>("WELCOME TO MY ATM SYSTEM",HttpStatus.OK);
+		return new ResponseEntity<>("WELCOME TO MY ATM Machine",HttpStatus.OK);
 	}
 	@PostMapping("/createAccountNo")
 	public String create(@RequestBody ATM at)
