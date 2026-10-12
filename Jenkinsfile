@@ -55,7 +55,7 @@ pipeline {
             steps {
                 bat '''
                     docker rm -f %CONTAINER_NAME% 2>nul
-                    docker run -d --name %CONTAINER_NAME% -p 9090:8181 %IMAGE_NAME%
+                    docker run -d --name %CONTAINER_NAME% -p 9090:8283 %IMAGE_NAME%
                 '''
             }
         }
