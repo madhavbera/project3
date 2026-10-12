@@ -3,7 +3,7 @@ pipeline {
     agent any
 
     environment {
-        IMAGE_NAME = 'new-simple'
+        IMAGE_NAME = 'libaray.management.app'
         CONTAINER_NAME = 'springboot-app'
 
         // Docker command-line folder
@@ -37,7 +37,7 @@ pipeline {
 
         stage('Build and Test') {
             steps {
-                dir('simple') {
+                dir('libaray.management.app') {
                     bat 'mvn clean package -DskipTests'
                 }
             }
@@ -45,7 +45,7 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                dir('simple') {
+                dir('libaray.management.app') {
                     bat 'docker build -t %IMAGE_NAME% .'
                 }
             }
