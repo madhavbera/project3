@@ -1,0 +1,55 @@
+
+pipeline {
+    agent any
+
+    environment {
+        IMAGE_NAME = 'Library-management-system'
+        CONTAINER_NAME = 'springboot-app'
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git branch: 'main',
+                    url: 'https://github.com/madhavbera/project3.git'
+            }
+        }
+
+        stage('Build JAR') {
+            steps {
+                dir('libaray.management.app') {
+                    bat 'mvn clean package -DskipTests'
+                    bat 'dir target'
+                }
+            }
+        }
+
+        stage('Build Docker Image') {
+            steps {
+                dir('libaray.management.app') {
+                    bat 'docker build -t %IMAGE_NAME% .'
+                }
+            }
+        }
+
+        stage('Run Container') {
+            steps {
+                bat '''
+                    docker rm -f %CONTAINER_NAME% 2>nul
+                    docker run -d --name %CONTAINER_NAME% -p 9292:8283 %IMAGE_NAME%
+                '''
+            }
+        }
+
+ 
+    }
+
+    post {
+        success {
+            echo 'Build and deployment pipeline completed.'
+        }
+        failure {
+            echo 'Pipeline failed. Check Console Output.'
+        }
+    }
+}
