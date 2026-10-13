@@ -35,7 +35,7 @@ pipeline {
             }
         }
 
-        stage('Build and Test') {
+   /*     stage('Build and Test') {
             steps {
                 dir('libaray.management.app') {
                     bat 'mvn clean package -DskipTests'
@@ -49,7 +49,7 @@ pipeline {
                     bat 'docker build -t %IMAGE_NAME% .'
                 }
             }
-        }
+        }*/
 
         stage('Deploy Container') {
             steps {
