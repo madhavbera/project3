@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,7 +19,7 @@ import jakarta.annotation.PostConstruct;
 @SpringBootApplication
 //@ComponentScan(basePackages = "com.employe")
 //@RestController
-public class InfoApplication {
+public class InfoApplication extends SpringBootServletInitializer{
 
 	@Autowired
 	Myrepo repo;
@@ -28,6 +29,7 @@ public class InfoApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(InfoApplication.class, args);
 	}
+	
 // @GetMapping("/hellowserver")
 // public String getmap()
 // {
