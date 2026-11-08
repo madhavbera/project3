@@ -47,7 +47,7 @@ public class BookController {
 @GetMapping(value="/Welcome")
 public String getwelcome()
 {
-	return "WELCOME TO MY BANK 101 ";
+	return "WELCOME TO MY BANK  ";
 }
 @PostMapping("/insert")
 public String insert(@RequestBody Book book)
